@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Veterinary - Inicio</title>
+  <link rel="stylesheet" href="../Vista/css/stiles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="index">
+  <!-- Sidebar izquierdo -->
+  <div class="sidebar">
+    <h2>Menú Principal</h2>
+    <nav>
+      <!-- Inicio: todos -->
+      <a href="index.html"
+         data-roles="Administrador,Recepcionista,Veterinario">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
+
+      <!-- Citas generales: solo Admin + Recepcionista -->
+      <a href="citas.html"
+         data-roles="Administrador,Recepcionista">
+        <i class="fa-solid fa-calendar-check"></i> Citas
+      </a>
+
+      <!-- Mascotas: Admin + Recepcionista + Veterinario -->
+      <a href="mascotas.html"
+         class="nav-item"
+         id="linkMascotas"
+         data-roles="Administrador,Recepcionista,Veterinario">
+        <i class="fa-solid fa-dog"></i>
+        <span class="nav-text">Mascotas</span>
+      </a>
+
+      <!-- Mis Citas: SOLO veterinario -->
+      <a href="mis_citas.html"
+         data-roles="Veterinario">
+        <i class="fa-solid fa-calendar-day"></i> Mis citas
+      </a>
+
+      <!-- Servicios: Admin + Recepcionista -->
+      <a href="servicios.html"
+         data-roles="Administrador,Recepcionista">
+        <i class="fa-solid fa-briefcase-medical"></i> Servicios
+      </a>
+
+      <!-- Cuentas: solo Admin -->
+      <a href="cuentas.html"
+         data-roles="Administrador">
+        <i class="fa-solid fa-user-gear"></i> Cuentas
+      </a>
+    </nav>
+
+    <footer><p>Veterinaria I LOVE ANIMALS © 2025</p></footer>
+  </div>
+
+  <!-- Panel derecho -->
+  <div class="panel">
+    <header class="panel-header">
+      <!-- Izquierda: menú + título -->
+      <div class="header-left">
+        <button class="menu-toggle" type="button">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h1>
+          <img src="../vista/imagenes/logoveterinaryBlanco.jpg"
+               alt="logo"
+               class="logito">
+          CLÍNICA DE ANIMALES VETERINARY
+        </h1>
+      </div>
+
+      <!-- Derecha: perfil (rol | correo) + Cerrar sesión -->
+      <div class="header-right">
+        <span class="user-badge" data-user-indicator></span>
+
+        <button type="button" class="btn-logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Cerrar sesión
+        </button>
+      </div>
+    </header>
+
+    <section>
+      <h2>Bienvenido al sistema de gestión veterinaria</h2>
+      <p>Selecciona una sección desde el menú para comenzar.</p>
+    </section>
+
+    <footer>
+      <p>@ FistPump, 2025</p>
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script src="../controlador/config.js"></script>
+  <script type="module" src="../controlador/index.js"></script>
+</body>
+</html>

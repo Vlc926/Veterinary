@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veterinary - Iniciar sesión</title>
+  <link rel="stylesheet" href="../Vista/css/stiles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="login">
+
+  <main class="form-page">
+    <section class="form-card">
+      <header class="form-header">
+        <h1>Iniciar Sesión</h1>
+      </header>
+
+      <form id="frmLogin">
+        <div class="form-group">
+          <label for="correo">Usuario (correo)</label>
+          <input type="email" id="correo" required placeholder="ej. admin@vet.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" required />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">
+            Ingresar
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Claves Supabase -->
+  <script src="../controlador/config.js"></script>
+  <!-- Lógica de login -->
+  <script type="module" src="../controlador/login.js"></script>
+</body>
+</html>

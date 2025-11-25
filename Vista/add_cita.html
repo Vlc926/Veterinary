@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programar Cita</title>
+  <link rel="stylesheet" href="css/stiles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="add-page">
+  <main class="form-page">
+    <section class="form-card">
+      <header class="form-header">
+        <h1>Programar Cita</h1>
+        <a href="citas.html" class="link-volver">← Volver</a>
+      </header>
+<form id="frmCita">
+  <input type="hidden" id="id">
+
+<label>Mascota</label>
+<select id="mascota_id" required></select>
+
+
+  <label>Servicio</label>
+  <select id="servicio_id" required></select>
+
+  <label>Fecha y hora</label>
+  <input type="datetime-local" id="fecha" required>
+
+  <label>Estado</label>
+  <select id="estado">
+    <option value="">(Predeterminado: PENDIENTE)</option>
+    <option value="PENDIENTE">PENDIENTE</option>
+    <option value="CONFIRMADA">CONFIRMADA</option>
+    <option value="CANCELADA">CANCELADA</option>
+  </select>
+  <label>Veterinario</label>
+  <select id="veterinario_id" required>
+    <option value="">Seleccione...</option>
+  </select>
+
+  <button type="submit">Guardar</button>
+</form>
+
+
+<script src="../controlador/config.js"></script>
+<script type="module" src="../modelo/add_cita.js"></script>
+
+    </section>
+  </main>
+
+  <script src="../controlador/config.js"></script>
+  <script type="module" src="../modelo/add_cita.js"></script>
+</body>
+</html>

@@ -1,0 +1,679 @@
+/* === Estilos generales === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+/* === Sidebar izquierdo: navegación y subtemas === */
+.sidebar {
+  width: 250px;
+  background-color: #1e3a5f;
+  color: white;
+  padding: 1.5rem;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  /* IMPORTANTE: sin justify-content aquí */
+}
+
+/* El menú (nav) centrado verticalmente entre el título y el footer */
+.sidebar nav {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Opcional: separar un poquito el título del menú */
+.sidebar h2 {
+  margin-bottom: 1rem;
+}
+
+/* El footer se queda abajo gracias a los auto del nav */
+
+.sidebar h2 { font-size: 1.2rem; margin-bottom: 1rem; }
+
+.sidebar nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+.sidebar nav a:hover { background-color: #2e5a8c; }
+
+/* === Panel derecho === */
+.panel {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/*.panel header {
+  display:flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-direction: row-reverse;
+}
+*/
+.panel header h1 { font-size: 1.5rem; color: #1e3a5f; }
+.logito { width: 70px; height: 70px; margin-right: 0.5rem; vertical-align: middle; object-fit: contain; }
+.menu-toggle { background: none; border: none; font-size: 1.5rem; color: #1e3a5f; cursor: pointer; }
+
+/* === Bienvenida index === */
+body.index .panel header h1 { font-size: 1.8rem; color: #1e3a5f; }
+body.index .panel section {
+  background-color: white; padding: 2rem; border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 700px; margin: auto; text-align: center;
+}
+body.index .panel section h2 { font-size: 1.6rem; margin-bottom: 1rem; color: #2e5a8c; }
+body.index .panel section p { font-size: 1.1rem; color: #555; }
+
+/* === Formularios === */
+form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+form input, form select, form textarea, form button {
+  display: block; width: 100%; margin: 0.75rem 0; padding: 0.75rem;
+  border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;
+}
+form button {
+  background-color: #1e3a5f; color: white; border: none; cursor: pointer; transition: background 0.3s;
+}
+form button:hover { background-color: #2e5a8c; }
+
+/* === Tablas === */
+table {
+  width: 100%; border-collapse: collapse; background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-top: 1rem;
+}
+#tableServicios td:nth-child(2){
+  white-space: normal;
+  word-break: break-word;
+  max-width: 300px;
+}
+#tableServicios{
+  width: 100%;
+  table-layout: fixed;
+}
+#tableServicios td{
+  padding: 8px;
+  vertical-align: top;
+}
+.foto-mascota { width: 80px; height: 80px; object-fit: cover; border: 2px solid #ccc; }
+thead { background-color: #1e3a5f; color: white; }
+th, td { padding: 0.75rem; border: 1px solid #ddd; text-align: left; }
+
+/* === Colores por sección === */
+body.clientes .panel header h1,
+body.mascotas .panel header h1,
+body.cuentas .panel header h1,
+body.servicios .panel header h1 { color: #1e3a5f; }
+
+body.mascotas form button,
+body.cuentas form button,
+body.servicios form button { background-color: #1e3a5f; }
+
+body.mascotas form button:hover,
+body.cuentas form button:hover,
+body.servicios form button:hover { background-color: #d81b60; }
+
+/* === Calendario semanal === */
+.calendario {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1rem; margin-top: 2rem;
+}
+.dia {
+  background-color: #c9d7eb; padding: 1rem; border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); min-height: 150px;
+}
+.dia h3 { margin-top: 0; color: #1e3a5f; font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+/* === Tarjeta de cita === */
+.evento {
+  background-color: #ffffff;
+  /* border-left: 4px solid #2e588f;  <- lo desactivamos para usar la barra con ::before */
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  font-size: 0.95rem;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Barra de estado a la izquierda (controlada por clases) */
+.evento::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background: var(--barra-color, #dc2626); /* rojo por defecto */
+}
+
+/* Estados */
+.evento.is-pending   { --barra-color: #dc2626; } /* rojo */
+.evento.is-completed { --barra-color: #16a34a; } /* verde */
+
+.evento-descripcion { font-size: .9em; opacity: .8; }
+
+.acciones {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+/* (Tu regla anterior) */
+.evento span { display: block; font-weight: bold; color: #d81b60; margin-bottom: 0.25rem; }
+
+
+.form-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;   /* centra horizontal */
+  align-items: center;       /* centra vertical */
+  padding: 2rem 1.5rem;      /* un poco de aire en pantallas chicas */
+  background: #f5f7fa;
+}
+
+
+.form-card {
+  width: 100%;
+  max-width: 760px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2.5rem 2.75rem;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+}
+
+/* Encabezado del formulario (título + volver) */
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-header h1 {
+  font-size: 1.6rem;
+  margin: 0;
+  color: #1e3a5f; /* tu azul principal */
+}
+
+.link-volver {
+  font-size: 0.95rem;
+  color: #6b21a8;     /* moradito */
+  text-decoration: none;
+}
+
+.link-volver:hover {
+  text-decoration: underline;
+}
+
+/* Campos del formulario */
+.form-group {
+  margin-bottom: 1.1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background-color: #f9fafb;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1e3a5f;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(30, 58, 95, 0.2);
+}
+
+/* Botones (Guardar / Cancelar) */
+.form-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-primary {
+  border: none;
+  padding: 0.75rem 2.5rem;
+  border-radius: 999px;
+  background-color: #1e3a5f;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary:hover {
+  background-color: #214871;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-link-cancelar {
+  font-size: 0.95rem;
+  color: #6b21a8;
+  text-decoration: none;
+}
+
+.btn-link-cancelar:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 640px) {
+  .form-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .form-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn-link-cancelar {
+    text-align: center;
+  }
+}
+
+
+/* ===== Centrar completamente los formularios add_*.html ===== */
+
+/* ===== Centrar formularios add_*.html con scroll ===== */
+
+body.add-page {
+  margin: 0;
+  background: #f5f7fa;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* ya NO centrado vertical */
+  padding: 2rem 0;          /* un poco de margen arriba/abajo */
+  overflow-y: auto;         /* permite hacer scroll si el form es muy alto */
+}
+
+body.add-page .form-page {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 2rem 1.5rem;
+}
+
+
+body.add-page .form-card {
+  width: 100%;
+  max-width: 760px;          /* ancho de la tarjeta */
+}
+
+/* ===== Botón "Volver" del encabezado ===== */
+.link-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6b21a8;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, color 0.15s ease,
+              box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.link-volver:hover {
+  background-color: #f3e8ff;      /* lila muy claro */
+  border-color: #e9d5ff;
+  box-shadow: 0 0 0 2px rgba(107, 33, 168, 0.15);
+  color: #581c87;
+  text-decoration: none;
+}
+
+/* ===== Botón "Cancelar" junto a Guardar ===== */
+.btn-link-cancelar {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  color: #6b21a8;
+  background-color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease,
+              border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-link-cancelar:hover {
+  background-color: #f9f5ff;
+  border-color: #d8b4fe;
+  color: #581c87;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+/* Dos columnas para especie / raza */
+.form-row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* Vista previa de foto */
+.form-photo-preview img {
+  max-width: 180px;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+}
+
+/* En pantallas pequeñas, especie y raza una debajo de la otra */
+/* Dos columnas para Costo / Duración, Especie / Raza, etc. */
+.form-row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2.5rem;  /* espacio horizontal entre las dos columnas */
+  row-gap: 1.25rem;    /* espacio vertical si se llegan a apilar */
+}
+
+/* En pantallas pequeñas, se ponen una debajo de otra */
+@media (max-width: 640px) {
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}
+
+
+/* ====== Tabla Mascotas ====== */
+
+.tabla-wrapper {
+  width: 100%;
+  overflow-x: auto;          /* Scroll horizontal en pantallas chicas */
+}
+
+
+/* ====== Tabla Mascotas ====== */
+
+.tabla-wrapper {
+  width: 100%;
+  overflow-x: auto;          /* scroll horizontal en pantallas chicas */
+}
+
+#tablaMascotas {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;        /* dejamos que las columnas se ajusten mejor */
+}
+
+#tablaMascotas th,
+#tablaMascotas td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #dde2eb;
+  text-align: left;
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+/* ---- anchos aproximados por columna ---- */
+/* 1: Foto */
+#tablaMascotas th:nth-child(1),
+#tablaMascotas td:nth-child(1) {
+  width: 70px;
+}
+
+/* 2: Nombre */
+#tablaMascotas th:nth-child(2),
+#tablaMascotas td:nth-child(2) {
+  width: 150px;
+}
+
+/* 3: Especie */
+#tablaMascotas th:nth-child(3),
+#tablaMascotas td:nth-child(3) {
+  width: 100px;
+}
+
+/* 4: Raza */
+#tablaMascotas th:nth-child(4),
+#tablaMascotas td:nth-child(4) {
+  width: 160px;
+}
+
+/* 5: Edad */
+#tablaMascotas th:nth-child(5),
+#tablaMascotas td:nth-child(5) {
+  width: 90px;
+}
+
+/* 6: Peso */
+#tablaMascotas th:nth-child(6),
+#tablaMascotas td:nth-child(6) {
+  width: 90px;
+}
+
+/* 7: Color */
+#tablaMascotas th:nth-child(7),
+#tablaMascotas td:nth-child(7) {
+  width: 110px;
+}
+
+/* 8: Dueño (tel) */
+#tablaMascotas th:nth-child(8),
+#tablaMascotas td:nth-child(8) {
+  width: 130px;
+  white-space: nowrap;      /* que no se rompa letra por letra */
+}
+
+/* 9: Acciones */
+#tablaMascotas th:nth-child(9),
+#tablaMascotas td:nth-child(9) {
+  width: 150px;
+  white-space: nowrap;
+}
+
+#tablaMascotas img {
+  display: block;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Botones dentro de la tabla */
+#tablaMascotas .btn-editar,
+#tablaMascotas .btn-eliminar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0.1rem 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+/* Un poco más compacto en pantallas pequeñas */
+@media (max-width: 768px) {
+  #tablaMascotas th,
+  #tablaMascotas td {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.5rem;
+  }
+}
+
+/* Contenedor del título + perfil + menú */
+/* Contenedor del título + menú + perfil */
+/* Contenedor del header: izquierda (menú+título) y derecha (perfil) */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* left group vs right badge */
+  padding: 0 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Grupo izquierda: hamburguesa + título juntos */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;                     /* espacio entre ícono y título */
+}
+
+/* Título normal, alineado a la izquierda */
+.header-left h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1e3a5f;
+}
+
+/* Botón de menú (ya tienes estilos base, esto solo quita márgenes extra) */
+.panel-header .menu-toggle {
+  margin: 0;
+}
+
+/* Chip del usuario a la derecha */
+.user-badge {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+}
+
+/* ===== Layout especial para la pantalla de login ===== */
+body.login {
+  margin: 0;
+  min-height: 100vh;
+
+  /* Centramos el contenido del body */
+  display: flex;
+  justify-content: center;   /* centro horizontal */
+  align-items: center;       /* centro vertical */
+
+  background-color: #f5f7fa;
+}
+
+/* Opcional: que el contenedor interno no cambie nada raro */
+body.login .form-page {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Vista previa de foto en el formulario de mascota */
+#prevFoto {
+  max-width: 300px;      /* ancho máximo de la foto */
+  max-height: 220px;     /* alto máximo para que no se haga larguísima */
+  width: 100%;           /* ocupa hasta 100% del contenedor pero respetando max-width */
+  height: auto;          /* mantiene la proporción original */
+  object-fit: cover;     /* recorta un poco para que no se deforme */
+  border-radius: 12px;
+  margin-top: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ===== Detalle de Mascota ===== */
+
+.detalle-mascota {
+  padding: 1.5rem;
+}
+
+.detalle-card {
+  max-width: 900px;       /* ancho máximo de la tarjeta */
+  margin: 1rem auto 2rem; /* centrada */
+}
+
+/* Contenedor de la foto */
+.detalle-foto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Imagen de detalle más razonable */
+.detalle-foto img.detalle-img {
+  max-width: 420px;   /* ancho máximo de la foto */
+  max-height: 320px;  /* alto máximo */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* En pantallas chicas, ocupa todo el ancho pero respetando el máximo */
+@media (max-width: 768px) {
+  .detalle-card {
+    max-width: 100%;
+  }
+
+  .detalle-foto img.detalle-img {
+    max-width: 100%;
+    max-height: 260px;
+  }
+}

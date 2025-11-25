@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterinary - Citas</title>
+  <link rel="stylesheet" href="css/stiles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="clientes">
+  <div class="sidebar">
+    <h2>Citas</h2>
+<nav>
+  <a href="index.html"
+     data-roles="Administrador,Recepcionista">
+    <i class="fa-solid fa-house"></i> Inicio
+  </a>
+
+  <a href="clientes.html"
+     data-roles="Administrador,Recepcionista">
+    <i class="fa-solid fa-user"></i> Clientes
+  </a>
+
+  <a href="mascotas.html"
+     data-roles="Administrador,Recepcionista">
+    <i class="fa-solid fa-dog"></i> Mascotas
+  </a>
+
+  <a href="servicios.html"
+     data-roles="Administrador,Recepcionista">
+    <i class="fa-solid fa-briefcase-medical"></i> Servicios
+  </a>
+</nav>
+
+    <footer><p>Veterinaria I LOVE ANIMALS © 2025</p></footer>
+  </div>
+
+  <div class="panel">
+    <header>
+      <h1><i class="fa-solid fa-calendar-check"></i> Gestión de Citas</h1>
+      <button class="menu-toggle" type="button"><i class="fa-solid fa-bars"></i></button>
+    </header>
+
+    <div style="margin: 1rem 0;">
+      <button onclick="location.href='add_cita.html'" class="btn-agregar">
+        <i class="fa-solid fa-calendar-plus"></i> Programar Cita
+      </button>
+    </div>
+
+    <section>
+
+      <div class="busqueda-citas">
+  <label for="busquedaCitas">Buscar por cliente:</label>
+  <input
+    type="text"
+    id="busquedaCitas"
+    placeholder="Nombre del cliente..."
+  >
+</div>
+
+<table id="tablaCitas" class="tabla-datos">
+  <thead>
+    <tr>
+      <th>Fecha y hora</th>
+      <th>Cliente</th>
+      <th>Mascota</th>
+      <th>Servicio</th>
+      <th>Estado</th>
+      <th>Teléfono</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="7">Cargando...</td></tr>
+  </tbody>
+</table>
+
+    </section>
+  </div>
+
+  <script src="../controlador/config.js"></script>
+  <script type="module" src="../controlador/citas.js"></script>
+</body>
+</html>

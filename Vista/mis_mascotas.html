@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Veterinary - Mis Mascotas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../Vista/css/stiles.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="mascotas">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Menú Principal</h2>
+    <nav>
+      <a href="index.html"
+         data-roles="Administrador,Recepcionista,Veterinario">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
+
+      <a href="citas.html"
+         data-roles="Administrador,Recepcionista">
+        <i class="fa-solid fa-calendar-check"></i> Citas
+      </a>
+
+      <a href="mascotas.html"
+         class="nav-item"
+         id="linkMascotas"
+         data-roles="Administrador,Recepcionista,Veterinario">
+        <i class="fa-solid fa-dog"></i>
+        <span class="nav-text">Mascotas</span>
+      </a>
+
+      <a href="mis_citas.html"
+         data-roles="Veterinario">
+        <i class="fa-solid fa-calendar-day"></i> Mis citas
+      </a>
+
+      <a href="servicios.html"
+         data-roles="Administrador,Recepcionista">
+        <i class="fa-solid fa-briefcase-medical"></i> Servicios
+      </a>
+
+      <a href="cuentas.html"
+         data-roles="Administrador">
+        <i class="fa-solid fa-user-gear"></i> Cuentas
+      </a>
+    </nav>
+
+    <footer><p>Veterinaria I LOVE ANIMALS © 2025</p></footer>
+  </div>
+
+  <!-- Panel principal -->
+  <div class="panel">
+    <header class="panel-header">
+      <div class="header-left">
+        <button class="menu-toggle" type="button">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <h1>
+          <i class="fa-solid fa-paw"></i>
+          Mis Mascotas
+        </h1>
+      </div>
+
+      <div class="header-right">
+        <span class="user-badge" data-user-indicator></span>
+        <button type="button" class="btn-logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Cerrar sesión
+        </button>
+      </div>
+    </header>
+
+    <!-- Barra de búsqueda -->
+    <div class="top-tools">
+      <div class="search-box">
+        <label for="txtBuscarTel">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          Buscar por teléfono o nombre:
+        </label>
+        <input
+          type="text"
+          id="txtBuscarTel"
+          placeholder="Ej. 5512345678 o 'lobito'">
+      </div>
+    </div>
+
+    <!-- Tabla (compacta) -->
+    <div class="tabla-wrapper">
+      <table id="tablaMascotas" class="tabla-mascotas">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>Edad</th>
+            <th>Peso (kg)</th>
+            <th>Dueño (tel)</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="8" class="text-center">Cargando...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer><p>@ FistPump, 2025</p></footer>
+  </div>
+
+  <!-- JS -->
+  <script src="../controlador/config.js"></script>
+  <script type="module" src="../controlador/mis_mascotas.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Citas - Veterinario</title>
+  <link rel="stylesheet" href="css/stiles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="clientes">
+<!-- Sidebar izquierdo -->
+<div class="sidebar">
+  <h2>Mis Citas</h2>
+  <nav>
+    <!-- Inicio: todos -->
+    <a href="index.html"
+       data-roles="Administrador,Recepcionista,Veterinario">
+      <i class="fa-solid fa-house"></i> Inicio
+    </a>
+
+    <!-- Citas generales: solo Admin + Recepcionista -->
+    <a href="citas.html"
+       data-roles="Administrador,Recepcionista">
+      <i class="fa-solid fa-calendar-check"></i> Citas
+    </a>
+
+    <!-- Mascotas: Admin + Recepcionista + Veterinario -->
+    <a href="mascotas.html"
+       class="nav-item"
+       id="linkMascotas"
+       data-roles="Administrador,Recepcionista,Veterinario">
+      <i class="fa-solid fa-dog"></i>
+      <span class="nav-text">Mascotas</span>
+    </a>
+
+    <!-- Mis Citas: SOLO veterinario (esta página) -->
+    <a href="mis_citas.html"
+       data-roles="Veterinario">
+      <i class="fa-solid fa-calendar-day"></i> Mis citas
+    </a>
+
+    <!-- Servicios: Admin + Recepcionista -->
+    <a href="servicios.html"
+       data-roles="Administrador,Recepcionista">
+      <i class="fa-solid fa-briefcase-medical"></i> Servicios
+    </a>
+
+    <!-- Cuentas: solo Admin -->
+    <a href="cuentas.html"
+       data-roles="Administrador">
+      <i class="fa-solid fa-user-gear"></i> Cuentas
+    </a>
+  </nav>
+
+  <footer><p>Veterinaria I LOVE ANIMALS © 2025</p></footer>
+</div>
+
+
+  <div class="panel">
+<header class="panel-header">
+  <!-- Izquierda: menú + título -->
+  <div class="header-left">
+    <button class="menu-toggle" type="button">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <h1>
+      <i class="fa-solid fa-paw"></i>
+      Mis Citas
+    </h1>
+  </div>
+
+  <!-- Derecha: indicador de usuario + logout -->
+  <div class="header-right">
+    <span class="user-badge" data-user-indicator></span>
+  </div>
+</header>
+
+
+    <section>
+      <table id="tablaMisCitas" class="tabla-datos">
+        <thead>
+          <tr>
+            <th>Día</th>
+            <th>Fecha y hora</th>
+            <th>Cliente</th>
+            <th>Mascota</th>
+            <th>Servicio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="5">Cargando...</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="../controlador/config.js"></script>
+  <script type="module" src="../controlador/mis_citas.js"></script>
+</body>
+</html>

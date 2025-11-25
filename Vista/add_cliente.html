@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agregar / Editar Cliente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Vista/css/stiles.css">
+</head>
+<body class="add-page">
+  <main class="form-page">
+    <section class="form-card">
+      <header class="form-header">
+        <h1>Formulario de Cliente</h1>
+        <a href="clientes.html" class="link-volver">← Volver</a>
+      </header>
+
+      <form id="frmCliente">
+        <!-- IMPORTANTE: este hidden -->
+        <input type="hidden" id="tel_original" />
+
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="paterno">Apellido paterno</label>
+          <input type="text" id="paterno">
+        </div>
+
+        <div class="form-group">
+          <label for="materno">Apellido materno</label>
+          <input type="text" id="materno">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email">
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Guardar</button>
+          <a href="clientes.html" class="btn-link-cancelar">Cancelar</a>
+        </div>
+      </form>
+    </section>
+  </main>
+<script src="../controlador/config.js"></script>
+<script type="module" src="../modelo/add_cliente.js"></script>
+
+</body>
+</html>
+
